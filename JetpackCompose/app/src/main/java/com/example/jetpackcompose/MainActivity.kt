@@ -23,6 +23,7 @@ import androidx.compose.ui.unit.sp
 import com.example.jetpackcompose.ui.theme.JetpackComposeTheme
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
+import androidx.compose.ui.res.stringResource
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,7 +33,7 @@ class MainActivity : ComponentActivity() {
                 // A surface container using the 'background' color from the theme
                 Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
                  //   Greeting(message= "Happy Birthday, Moon",from = "From MOU")
-                    GreetingWithImg(message = "Happy BirthDay, Saurav", from = "From Mou", modifier = Modifier)
+                    GreetingWithImg(message = getString(R.string.greeting), from = getString(R.string.sender), modifier = Modifier)
                 }
             }
         }
@@ -95,7 +96,7 @@ fun GreetingWithImg(message: String,from: String,modifier: Modifier){
             fontSize = 30.sp,
             modifier = modifier
                 .padding(8.dp)
-                .align(Alignment.End)
+                .align(Alignment.CenterHorizontally)
         )
     }
 
@@ -108,7 +109,7 @@ fun GreetingWithImg(message: String,from: String,modifier: Modifier){
 fun BirthDayCardPreview() {
     JetpackComposeTheme {
         //Greeting(message= "Happy Birthday, Moon",from = "From MOU")
-        GreetingWithImg(message = "Happy BirthDay,Saurav", from = "From Mou", modifier = Modifier)
+        GreetingWithImg(message = stringResource(R.string.greeting), from = stringResource(R.string.sender), modifier = Modifier)
 
     }
 }
